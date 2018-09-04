@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khbr.onlineclinic.dao.CustomerMapper">
+
+    <insert id="insertPatient" parameterType="com.khbr.onlineclinic.domain.po.AddCustomerInfo">
+        INSERT INTO customer(name,idCardNo,sex,birth,age,phone,isMaried,profession,province,city,district,street,address)
+        VALUES (#{name},#{idCardNo},#{sex},#{birth},#{age},#{phone},#{isMaried},#{profession},#{province},#{city},#{district},#{street},#{address})
+    </insert>
+
+    <select id="selectCustomer" parameterType="com.khbr.onlineclinic.domain.dto.PatientQueryConditions" resultType="com.khbr.onlineclinic.domain.dto.QueryPatient">
+
+        SELECT id,name,age,sex,address,idCardNo,phone FROM customer WHERE busiStatus=1
+
+    <if test="queryCon!=null">
+        AND name LIKE '%#{queryCon}%'
+    </if>
+
+    limit #{startIndex},#{pageSize}
+   </select>
+
+    <select id="selectTotalRows" parameterType="com.khbr.onlineclinic.domain.dto.PatientQueryConditions" resultType="int">
+        SELECT COUNT(1) totalRows FROM customer
+    </select>
+
+    <select id="selectById" parameterType="int" resultType="com.khbr.onlineclinic.domain.dto.CustomerInfo">
+        SELECT id, name,idCardNo,sex,birth,age,phone,isMaried,profession,province,city,district,street,address FROM customer WHERE id=#{id}
+    </select>
+</mapper>
