@@ -14,7 +14,6 @@
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 </head>
 <body>
 <br>
@@ -73,7 +72,10 @@
         var tables = $('.table');
 
         var addtr = $("<tr>"+
-                "<td><input type='text' id='drugName' name='drugName' oninput='test()' /></td>"+
+                "<td><input type='text' class='inputbox-text inputbox-text-border' id='drugName' name='drugName' />" +
+                "<div id='brxmDiv' class='d-search-autodiv' onmouseleave='hide()' style='display:none;'>"+
+                "<select id='brxmSelect' size='3' onclick='checked()' style='margin-top:0px;' class='d-search-autoselect'></select>"+
+                "</div></td>"+
                 "<td><input type='text' id='usage' name='usage' /></td>"+
                 "<td><input type='text' id='amount' name='amount' /></td>"+
                 "<td><input type='text' id='frequency' name='frequency' /></td>"+
@@ -85,6 +87,27 @@
 
         addtr.appendTo(tables);
 
+
+        $().ready(function(){
+            $("#drugName").keyup(function(){
+                var content="";
+
+                $("#brxmSelect option").length=0;
+
+                $("#brxmDiv").css("display","block");
+                var drugNameWidth = $('#drugName').width();
+                $("#brxmSelect").css("width",drugNameWidth);
+
+                $.post("queryByName.drug",{"drugName":$("#drugName").val()},function(data){
+                    for(var i in data){
+                        var drug=data[i];
+                        content += "<option>+data[i].commidityName</option>"
+                    }
+                    $("#brxmSelect").html(content);
+                },"json")
+            })
+        })
+
     }
 
     function deleteTrRow(tr){
@@ -95,13 +118,10 @@
     }
 
     function test(){
-
+        alert("1111111")
     }
 
 </script>
-
-
-
 
 </body>
 </html>
