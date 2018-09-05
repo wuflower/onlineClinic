@@ -116,7 +116,7 @@ public class CustomerServlet extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("patient", addCustomerInfo);
         if (jumpTo.equals("diagnose")) {
-            req.getRequestDispatcher("caseAndRecipe.jsp").forward(req, resp);
+            req.getRequestDispatcher(".jsp").forward(req, resp);
         }else if (jumpTo.equals("update")){
             req.getRequestDispatcher("updateCustomer.jsp").forward(req,resp);
         }
