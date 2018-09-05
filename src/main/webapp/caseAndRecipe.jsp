@@ -39,7 +39,7 @@
 
 <button  class="button"  onclick="addrow();">添加一行</button><br>
 <form action="#">
-    <table class="table" border="1px">
+    <table class="table">
         <tr>
             <td>药品名</td>
             <td>用法</td>
@@ -101,10 +101,13 @@
                 $.post("queryByName.drug",{"drugName":$("#drugName").val()},function(data){
                     for(var i in data){
                         var drug=data[i];
-                        content += "<option>+data[i].commidityName</option>"
+                        content += "<option>"+drug.commidityName+"</option>"
                     }
                     $("#brxmSelect").html(content);
+
+
                 },"json")
+
             })
         })
 

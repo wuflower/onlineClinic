@@ -1,5 +1,7 @@
 package com.khbr.onlineclinic.domain.enums;
 
+import com.khbr.onlineclinic.util.EnumUtil;
+
 /**
  * 病人相关业务状态枚举
  * 
@@ -48,12 +50,7 @@ public enum CustomerBusiStatusEnum {
 	 * @return String
 	 */
 	public static String getMsgByStatus(Integer status) {
-		CustomerBusiStatusEnum[] enums = CustomerBusiStatusEnum.values();
-		for (int i = 0; i < enums.length; i++) {
-			if (enums[i].getStatus()==status) {
-				return enums[i].getMessage();
-			}
-		}
-		return "";
+		String message = (String) EnumUtil.getEnumDescriotionByValue(status, CustomerBusiStatusEnum.class);
+		return message;
 	}
 }

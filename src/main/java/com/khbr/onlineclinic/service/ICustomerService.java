@@ -15,4 +15,6 @@ public interface ICustomerService {
     PageInfo queryPatient(PatientQueryConditions queryConditions);
 
     CustomerInfo queryPatientById(Integer id);
+
+    void modifyCustomer(AddCustomerInfo addCustomerInfo);
 }

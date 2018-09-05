@@ -18,4 +18,6 @@ public interface CustomerMapper {
     Integer selectTotalRows(PatientQueryConditions queryConditions);
 
     CustomerInfo selectById(Integer id);
+
+    void updateCustomer(AddCustomerInfo addCustomerInfo);
 }

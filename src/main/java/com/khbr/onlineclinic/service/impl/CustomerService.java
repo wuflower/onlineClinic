@@ -66,4 +66,9 @@ public class CustomerService implements ICustomerService {
         CustomerInfo addCustomerInfo = customerDao.selectById(id);
         return addCustomerInfo;
     }
+
+    @Override
+    public void modifyCustomer(AddCustomerInfo addCustomerInfo) {
+        customerDao.updateCustomer(addCustomerInfo);
+    }
 }

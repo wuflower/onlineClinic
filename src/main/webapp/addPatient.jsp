@@ -44,7 +44,6 @@
         <!--省份选择-->
         <select id="prov" name="province" onchange="showCity(this)">
             <option>=请选择省份=</option>
-
         </select>
 
 

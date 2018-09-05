@@ -8,6 +8,7 @@ import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -72,5 +73,13 @@ public class CustomerDao implements CustomerMapper {
         CustomerInfo addCustomerInfo = mapper.selectById(id);
         sqlSession.close();
         return addCustomerInfo;
+    }
+
+    @Override
+    public void updateCustomer(AddCustomerInfo addCustomerInfo) {
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
+        mapper.updateCustomer(addCustomerInfo);
+        sqlSession.close();
     }
 }

@@ -243,8 +243,8 @@
                         <td>${patient.phone}</td>
                         <td>
                             <a href="#">删除</a>
-                            <a href="#">修改</a>
-                            <a href="queryById.customer?id=${patient.id}">诊断</a>
+                            <a href="queryById.customer?id=${patient.id}&jumpTo=update">修改</a>
+                            <a href="queryById.customer?id=${patient.id}&jumpTo=diagnose">诊断</a>
                         </td>
                     </tr>
                 </c:forEach>
