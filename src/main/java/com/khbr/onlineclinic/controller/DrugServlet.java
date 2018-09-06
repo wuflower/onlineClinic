@@ -33,6 +33,13 @@ public class DrugServlet extends HttpServlet{
         }
     }
 
+    /**
+     * 根据输入的药品名模糊查询药品信息
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     public void queryByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String drugName = req.getParameter("drugName");
         List<Drug> drugs = drugService.queryByName(drugName);

@@ -1,7 +1,6 @@
 package com.khbr.onlineclinic.domain.po;
 
-import com.khbr.onlineclinic.domain.enums.ProfessionEnum;
-import com.khbr.onlineclinic.domain.enums.SexEnum;
+
 
 import java.sql.Date;
 

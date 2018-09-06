@@ -33,5 +33,7 @@
         <mapper resource="mappers/loginMapper.xml"/>
         <mapper resource="mappers/customerMapper.xml"/>
         <mapper resource="mappers/drugMapper.xml"/>
+        <!--<mapper resource="mappers/userMapper.xml"/>
+        <mapper resource="mappers/caseMapper.xml"/>-->
     </mappers>
 </configuration>

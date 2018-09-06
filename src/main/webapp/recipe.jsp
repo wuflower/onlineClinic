@@ -6,9 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -36,12 +41,12 @@
 
     function addrow(){
 
-        var tables = $('.table');
+        var tables = $(".table");
 
         var addtr = $("<tr>"+
                 "<td><input type='text' class='inputbox-text inputbox-text-border' id='drugName' name='drugName' />" +
-                "<div id='brxmDiv' class='d-search-autodiv' onmouseleave='hide()' style='display:none;'>"+
-                "<select id='brxmSelect' size='3' onclick='checked()' style='margin-top:0px;' class='d-search-autoselect'></select>"+
+                "<div id='brxmDiv' class='d-search-autodiv' style='display:none;'>"+
+                "<select id='brxmSelect' size='3' style='margin-top:0px;' class='d-search-autoselect'></select>"+
                 "</div></td>"+
                 "<td><input type='text' id='usage' name='usage' /></td>"+
                 "<td><input type='text' id='amount' name='amount' /></td>"+
@@ -73,9 +78,24 @@
                     $("#brxmSelect").html(content);
 
 
+
+                    $("#brxmSelect").change(function () {
+                        $("#drugName").val($("#brxmSelect option:selected").text());
+                        $("#brxmSelect").attr("style","display:none");
+                        $.post("queryByName.drug",{"drugName":$("#brxmSelect option:selected").text()},function(data){
+                            for (var i in data){
+                                $("#unit").val(data[i].unitPrice)
+                            }
+                        },"json")
+                    })
+
                 },"json")
 
+
+
             })
+
+
         })
 
     }

@@ -12,6 +12,13 @@ import java.io.IOException;
 public class UserServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
+    }
+
+
+    protected void queryUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
 }

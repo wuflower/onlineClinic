@@ -44,5 +44,6 @@ public class CaseServlet extends HttpServlet {
 
         Case caseBook = new Case(Integer.valueOf(type),Byte.valueOf(isSubsequent),selfReported, Date.valueOf(diagnosiDate),temperature,systolicPress,diastolicPress,Integer.valueOf(weight),Integer.valueOf(height));
 
+        req.getRequestDispatcher("recipe.jsp").forward(req,resp);
     }
 }

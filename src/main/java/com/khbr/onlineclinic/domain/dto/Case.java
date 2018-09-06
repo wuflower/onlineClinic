@@ -2,7 +2,7 @@ package com.khbr.onlineclinic.domain.dto;
 
 import com.khbr.onlineclinic.domain.enums.CaseTypeEnum;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Administrator on 2018/9/4 0004.

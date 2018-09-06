@@ -34,7 +34,7 @@
     体重：<input id="height" name="height">
     诊断日期：<input type="date" name="diagnosiDate">
 
-    <input type="submit" value="提交病历">
+    <input type="submit" value="开具处方">
 </form>
 <br>
 <br>
