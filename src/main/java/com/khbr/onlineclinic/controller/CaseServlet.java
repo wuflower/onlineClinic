@@ -1,6 +1,7 @@
 package com.khbr.onlineclinic.controller;
 
 import com.khbr.onlineclinic.domain.po.Case;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import java.sql.Date;
  * Created by Administrator on 2018/9/3 0003.
  */
 @WebServlet("*.case")
+@Controller
 public class CaseServlet extends HttpServlet {
 
     @Override

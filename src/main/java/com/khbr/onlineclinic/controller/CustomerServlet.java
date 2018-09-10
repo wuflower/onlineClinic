@@ -1,13 +1,15 @@
 package com.khbr.onlineclinic.controller;
 
 import com.khbr.onlineclinic.domain.dto.CustomerInfo;
-import com.khbr.onlineclinic.domain.enums.SexEnum;
 import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
 import com.khbr.onlineclinic.service.ICustomerService;
-import com.khbr.onlineclinic.service.impl.CustomerService;
-import org.apache.commons.lang3.EnumUtils;
+import com.khbr.onlineclinic.util.DynamicParamsConverter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,14 +18,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Date;
+
 
 /**
  * Created by Administrator on 2018/8/31 0031.
  */
 @WebServlet("*.customer")
+@Controller
 public class CustomerServlet extends HttpServlet {
-    private ICustomerService customerService = new CustomerService();
+    @Autowired
+    private ICustomerService customerService;
 
     @Override
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,7 +57,7 @@ public class CustomerServlet extends HttpServlet {
      * @throws IOException
      */
     public void addCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
+        /*String name = req.getParameter("name");
         String idCardNo = req.getParameter("idCardNo");
         String sex = req.getParameter("sex");
         String birth = req.getParameter("birth");
@@ -70,6 +74,8 @@ public class CustomerServlet extends HttpServlet {
 
         AddCustomerInfo addCustomerInfo = new AddCustomerInfo(name, idCardNo, Integer.valueOf(sex), Date.valueOf(birth), Integer.valueOf(age), Byte.valueOf(isMaried), Integer.valueOf(profession), phone, province, city, district, street, address);
 
+       */
+        AddCustomerInfo addCustomerInfo = DynamicParamsConverter.paramsFill(req, "com.khbr.onlineclinic.domain.po.AddCustomerInfo");
         customerService.addCustomer(addCustomerInfo);
 
         resp.sendRedirect("query.customer");
@@ -130,7 +136,7 @@ public class CustomerServlet extends HttpServlet {
      * @throws IOException
      */
     public void modifyCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("customerId");
+        /*String id = req.getParameter("customerId");
         String name = req.getParameter("name");
         String sex = req.getParameter("sex");
         String idCardNo = req.getParameter("idCardNo");
@@ -159,8 +165,8 @@ public class CustomerServlet extends HttpServlet {
         addCustomerInfo.setDistrict(district);
         addCustomerInfo.setStreet(street);
         addCustomerInfo.setAddress(address);
-        addCustomerInfo.setPhone(phone);
-
+        addCustomerInfo.setPhone(phone);*/
+        AddCustomerInfo addCustomerInfo =(AddCustomerInfo) DynamicParamsConverter.paramsFill(req, "com.khbr.onlineclinic.domain.po.AddCustomerInfo");
 
         customerService.modifyCustomer(addCustomerInfo);
 

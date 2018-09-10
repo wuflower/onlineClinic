@@ -7,6 +7,7 @@ import com.khbr.onlineclinic.domain.dto.QueryPatient;
 import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/8/31 0031.
  */
+@Repository
 public class CustomerDao implements CustomerMapper {
 
     /**

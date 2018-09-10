@@ -4,6 +4,8 @@ import com.khbr.onlineclinic.domain.po.Drug;
 import com.khbr.onlineclinic.service.IDrugService;
 import com.khbr.onlineclinic.service.impl.DrugService;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +19,11 @@ import java.util.List;
  * Created by Administrator on 2018/9/3 0003.
  */
 @WebServlet("*.drug")
+@Controller
 public class DrugServlet extends HttpServlet{
 
-    private IDrugService drugService = new DrugService();
+    @Autowired
+    private IDrugService drugService;
 
     @Override
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

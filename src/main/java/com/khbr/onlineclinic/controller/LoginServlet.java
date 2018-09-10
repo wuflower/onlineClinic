@@ -3,6 +3,8 @@ package com.khbr.onlineclinic.controller;
 import com.khbr.onlineclinic.domain.po.Admin;
 import com.khbr.onlineclinic.service.ILoginService;
 import com.khbr.onlineclinic.service.impl.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +17,11 @@ import java.io.IOException;
  * Created by Administrator on 2018/8/30 0030.
  */
 @WebServlet("/admin/*")
+@Controller
 public class LoginServlet extends HttpServlet {
-    private ILoginService loginService = new LoginService();
+
+    @Autowired
+    private ILoginService loginService;
 
     @Override
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

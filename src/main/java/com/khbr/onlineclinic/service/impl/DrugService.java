@@ -4,12 +4,14 @@ import com.khbr.onlineclinic.dao.DrugMapper;
 import com.khbr.onlineclinic.dao.impl.DrugDao;
 import com.khbr.onlineclinic.domain.po.Drug;
 import com.khbr.onlineclinic.service.IDrugService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2018/9/3 0003.
  */
+@Service
 public class DrugService implements IDrugService {
     DrugMapper drugMapper = new DrugDao();
 

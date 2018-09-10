@@ -8,14 +8,18 @@ import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
 import com.khbr.onlineclinic.domain.dto.QueryPatient;
 import com.khbr.onlineclinic.service.ICustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2018/8/31 0031.
  */
+@Service
 public class CustomerService implements ICustomerService {
-    private CustomerMapper customerDao = new CustomerDao();
+    @Autowired
+    private CustomerMapper customerDao;
 
     /**
      * 新增病人信息

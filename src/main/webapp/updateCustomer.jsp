@@ -19,7 +19,7 @@
 
 <div>
     <form action="add.customer" method="post">
-        <input type="hidden" id="customerId" name="customerId" value="${patient.id}">
+        <input type="hidden" id="customerId" name="id" value="${patient.id}">
         病人姓名：<input id="name" name="name" value="${patient.name}"><br>
         身份证：<input id="idCardNo" name="idCardNo" value="${patient.idCardNo}"><br>
         性别：<input id="sex" name="sex" value="${patient.sex}">

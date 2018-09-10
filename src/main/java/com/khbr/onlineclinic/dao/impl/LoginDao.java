@@ -4,10 +4,12 @@ import com.khbr.onlineclinic.dao.LoginMapper;
 import com.khbr.onlineclinic.domain.po.Admin;
 import com.khbr.onlineclinic.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Administrator on 2018/8/30 0030.
  */
+@Repository
 public class LoginDao implements LoginMapper{
 
     /**
