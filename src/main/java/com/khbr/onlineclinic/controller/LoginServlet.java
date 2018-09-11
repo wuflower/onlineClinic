@@ -2,7 +2,6 @@ package com.khbr.onlineclinic.controller;
 
 import com.khbr.onlineclinic.domain.po.Admin;
 import com.khbr.onlineclinic.service.ILoginService;
-import com.khbr.onlineclinic.service.impl.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -18,6 +17,7 @@ import java.io.IOException;
  */
 @WebServlet("/admin/*")
 @Controller
+@Contex
 public class LoginServlet extends HttpServlet {
 
     @Autowired
