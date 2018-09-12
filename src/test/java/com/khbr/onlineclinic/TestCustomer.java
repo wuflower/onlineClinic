@@ -1,16 +1,12 @@
 package com.khbr.onlineclinic;
 
-import com.khbr.onlineclinic.dao.CustomerMapper;
-import com.khbr.onlineclinic.dao.impl.CustomerDao;
 import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
-import com.khbr.onlineclinic.domain.dto.QueryPatient;
 import com.khbr.onlineclinic.service.ICustomerService;
 import com.khbr.onlineclinic.service.impl.CustomerService;
 import org.junit.Test;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Administrator on 2018/8/31 0031.
@@ -38,9 +34,6 @@ public class TestCustomer {
 
     @Test
     public void testquerydao(){
-        PatientQueryConditions patientQueryConditions = new PatientQueryConditions();
-        CustomerMapper customerMapper = new CustomerDao();
-        List<QueryPatient> queryPatients = customerMapper.selectCustomer(patientQueryConditions);
-        System.out.println(queryPatients);
+
     }
 }

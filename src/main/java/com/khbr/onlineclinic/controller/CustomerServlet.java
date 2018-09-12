@@ -8,7 +8,7 @@ import com.khbr.onlineclinic.service.ICustomerService;
 import com.khbr.onlineclinic.util.DynamicParamsConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import javax.servlet.ServletException;
@@ -23,13 +23,14 @@ import java.io.IOException;
 /**
  * Created by Administrator on 2018/8/31 0031.
  */
-@WebServlet("*.customer")
+/*@WebServlet*/
 @Controller
 public class CustomerServlet extends HttpServlet {
     @Autowired
     private ICustomerService customerService;
 
     @Override
+    @RequestMapping("*.customer")
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");

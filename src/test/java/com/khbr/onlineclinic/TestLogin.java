@@ -1,30 +1,25 @@
 package com.khbr.onlineclinic;
 
 
-import com.khbr.onlineclinic.dao.LoginMapper;
-import com.khbr.onlineclinic.dao.impl.LoginDao;
-import com.khbr.onlineclinic.domain.dto.QueryPatient;
-import com.khbr.onlineclinic.domain.enums.CustomerBusiStatusEnum;
-import com.khbr.onlineclinic.domain.enums.ProfessionEnum;
-import com.khbr.onlineclinic.domain.enums.SexEnum;
-import com.khbr.onlineclinic.domain.po.Admin;
-import com.khbr.onlineclinic.util.EnumUtil;
-import org.apache.commons.lang3.EnumUtils;
-import org.apache.taglibs.standard.lang.jstl.IntegerDivideOperator;
+import com.khbr.onlineclinic.controller.LoginServlet;
 import org.junit.Test;
-
-import java.util.List;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 /**
  * Created by Administrator on 2018/8/30 0030.
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring-AOP.xml")
 public class TestLogin {
+    @Autowired
+    private LoginServlet loginServlet;
+
     @Test
     public void testLogin(){
-        String sex="1";
-        QueryPatient queryPatient = new QueryPatient();
-
 
     }
 }

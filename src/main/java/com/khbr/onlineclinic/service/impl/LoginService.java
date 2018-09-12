@@ -1,7 +1,6 @@
 package com.khbr.onlineclinic.service.impl;
 
 import com.khbr.onlineclinic.dao.LoginMapper;
-import com.khbr.onlineclinic.dao.impl.LoginDao;
 import com.khbr.onlineclinic.domain.po.Admin;
 import com.khbr.onlineclinic.service.ILoginService;
 import org.springframework.beans.factory.annotation.Autowired;

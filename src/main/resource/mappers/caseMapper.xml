@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="com.khbr.onlineclinic.dao.CaseMapper">
     <insert id="insertCase" parameterType="com.khbr.onlineclinic.domain.po.Case" >
         INSERT INTO casebook(type,isSubsequent,selfReported，diagnosiDate，temperature，systolicPress，diastolicPress，weight，height)
         VALUES (#{type},#{isSubsequent},#{selfReported}，#{diagnosiDate}，#{temperature}，#{systolicPress}，#{diastolicPress，weight}，#{height} )

@@ -1,15 +1,16 @@
+<!--
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<!--<settings>
+&lt;!&ndash;<settings>
     <setting name="logImpl" value="LOG4J" />
     &lt;!&ndash; <setting name="cacheEnabled" value="true"/> &ndash;&gt;
-</settings>-->
+</settings>&ndash;&gt;
 <configuration>
     <properties resource="db.properties"/>
     <settings>
         <setting name="logImpl" value="LOG4J"/>
-        <!--<setting name="cacheEnabled" value="true"/>-->
+        &lt;!&ndash;<setting name="cacheEnabled" value="true"/>&ndash;&gt;
     </settings>
     <typeHandlers>
         <typeHandler handler="com.khbr.onlineclinic.util.UniversalEnumHandler"
@@ -25,7 +26,7 @@
                 <property name="url" value="${url}"/>
                 <property name="username" value="${username}"/>
                 <property name="password" value="${password}"/>
-                <!--<property name="useSSL" value="false"/>-->
+                &lt;!&ndash;<property name="useSSL" value="false"/>&ndash;&gt;
             </dataSource>
         </environment>
     </environments>
@@ -33,7 +34,7 @@
         <mapper resource="mappers/loginMapper.xml"/>
         <mapper resource="mappers/customerMapper.xml"/>
         <mapper resource="mappers/drugMapper.xml"/>
-        <!--<mapper resource="mappers/userMapper.xml"/>
-        <mapper resource="mappers/caseMapper.xml"/>-->
+        &lt;!&ndash;<mapper resource="mappers/userMapper.xml"/>
+        <mapper resource="mappers/caseMapper.xml"/>&ndash;&gt;
     </mappers>
-</configuration>
+</configuration>-->

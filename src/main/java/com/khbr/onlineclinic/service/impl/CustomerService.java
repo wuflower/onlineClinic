@@ -1,7 +1,6 @@
 package com.khbr.onlineclinic.service.impl;
 
 import com.khbr.onlineclinic.dao.CustomerMapper;
-import com.khbr.onlineclinic.dao.impl.CustomerDao;
 import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.domain.dto.CustomerInfo;
 import com.khbr.onlineclinic.domain.dto.PageInfo;

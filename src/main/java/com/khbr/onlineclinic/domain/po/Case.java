@@ -108,7 +108,7 @@ public class Case {
 
     @Override
     public String toString() {
-        return "Case{" +
+        return "PatientCase{" +
                 "type=" + type +
                 ", isSubsequent=" + isSubsequent +
                 ", selfReported='" + selfReported + '\'' +

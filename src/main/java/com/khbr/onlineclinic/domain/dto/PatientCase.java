@@ -7,7 +7,7 @@ import java.sql.Date;
 /**
  * Created by Administrator on 2018/9/4 0004.
  */
-public class Case {
+public class PatientCase {
 
     private CaseTypeEnum type;
     private Byte isSubsequent;
@@ -19,10 +19,10 @@ public class Case {
     private Integer weight;
     private Integer height;
 
-    public Case() {
+    public PatientCase() {
     }
 
-    public Case(CaseTypeEnum type, Byte isSubsequent, String selfReported, Date diagnosiDate, String temperature, String systolicPress, String diastolicPress, Integer weight, Integer height) {
+    public PatientCase(CaseTypeEnum type, Byte isSubsequent, String selfReported, Date diagnosiDate, String temperature, String systolicPress, String diastolicPress, Integer weight, Integer height) {
         this.type = type;
         this.isSubsequent = isSubsequent;
         this.selfReported = selfReported;
@@ -108,7 +108,7 @@ public class Case {
 
     @Override
     public String toString() {
-        return "Case{" +
+        return "PatientCase{" +
                 "type=" + type +
                 ", isSubsequent=" + isSubsequent +
                 ", selfReported='" + selfReported + '\'' +
