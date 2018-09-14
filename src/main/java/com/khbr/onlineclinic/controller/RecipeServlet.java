@@ -1,5 +1,8 @@
 package com.khbr.onlineclinic.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,13 +12,8 @@ import java.io.IOException;
 /**
  * Created by Administrator on 2018/9/3 0003.
  */
-public class RecipeServlet extends HttpServlet {
-    @Override
-    public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
-        resp.setCharacterEncoding("utf-8");
-        resp.setContentType("text/html;charset=utf-8");
+@Controller
+@RequestMapping("/recipe")
+public class RecipeServlet{
 
-
-    }
 }

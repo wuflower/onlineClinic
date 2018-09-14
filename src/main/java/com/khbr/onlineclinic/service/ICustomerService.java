@@ -17,4 +17,6 @@ public interface ICustomerService {
     CustomerInfo queryPatientById(Integer id);
 
     void modifyCustomer(AddCustomerInfo addCustomerInfo);
+
+    void deleteCustomer(Integer id);
 }

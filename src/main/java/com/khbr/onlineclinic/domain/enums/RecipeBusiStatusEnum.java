@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum RecipeBusiStatusEnum {
+public enum RecipeBusiStatusEnum implements BaseEnum {
 	UN_PAID(1, "未缴费"),
 
 	PAID(2, "已缴费");

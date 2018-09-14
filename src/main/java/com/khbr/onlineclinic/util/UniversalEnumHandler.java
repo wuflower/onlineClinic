@@ -2,8 +2,11 @@ package com.khbr.onlineclinic.util;
 
 
 import com.khbr.onlineclinic.domain.enums.BaseEnum;
+import com.khbr.onlineclinic.domain.enums.SexEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.MappedJdbcTypes;
+import org.apache.ibatis.type.MappedTypes;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -13,6 +16,8 @@ import java.sql.SQLException;
 /**
  * Created by Administrator on 2018/9/4 0004.
  */
+
+@MappedTypes({BaseEnum.class})
 public final class UniversalEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
 
     private Class<E> type;
@@ -30,6 +35,9 @@ public final class UniversalEnumHandler<E extends BaseEnum> extends BaseTypeHand
         if (this.enums == null)
             throw new IllegalArgumentException(type.getSimpleName()
                     + " does not represent an enum type.");
+    }
+
+    public UniversalEnumHandler() {
     }
 
     @Override

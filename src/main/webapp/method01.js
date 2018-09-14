@@ -7,7 +7,7 @@ function $(str) {
 }
 
 var addrShow = $('addr-show');
-var btn = document.getElementsByClassName('met1')[0];
+var btn = document.getElementsByClassName('btn met1');
 var prov = $('prov');
 var city = $('city');
 var country = $('country');

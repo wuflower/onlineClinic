@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum CaseBusiStatusEnum {
+public enum CaseBusiStatusEnum implements BaseEnum {
 	CURED(1, "治愈"),
 
 	IMPROVED(2, "已见好转"),

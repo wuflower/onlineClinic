@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum SystemStatusEnum {
+public enum SystemStatusEnum implements BaseEnum {
 	EDITABLE(1, "可编辑"),//可读可改
 
 	READONLY(2, "只读"),// 可读不能修改

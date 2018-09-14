@@ -9,7 +9,7 @@ import java.util.Map;
  * @author dizhu
  *
  */
-public enum ProfessionEnum implements BaseEnum {
+public enum ProfessionEnum implements BaseEnum  {
 	FARMER(1, "农牧渔民"),
 
 	WORKER(2, "工人"),

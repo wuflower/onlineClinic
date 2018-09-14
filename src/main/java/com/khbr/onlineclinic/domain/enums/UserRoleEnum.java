@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum UserRoleEnum {
+public enum UserRoleEnum implements BaseEnum {
 	ADMIN_PLATFORM(1, "平台管理员"),
 
 	ADMIN_CLINIC(2, "诊所管理员"),

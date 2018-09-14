@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isELIgnored="false"%>
+<%--
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+--%>
 
 <html>
 <head>
+    <%--<base href="<%=basePath%>">--%>
     <title>Title</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <style type="text/css">
@@ -176,7 +183,7 @@
 
 </head>
 <body>
-<div class="head" style="width: 100%;height: 10%;background-image: url('img/head.jpg')">
+<div class="head" style="width: 100%;height: 10%;background-image: url('../jsp/img/head.jpg')">
 
     <span class="firstPro" id="diaCharge"><a href="diaCharge.jsp">诊疗收费</a></span>
     <span class="firstPro" id="drugManage"><a href="drugManage.jsp">药品管理</a></span>
@@ -185,12 +192,12 @@
 
 </div>
 <div class="diagnose-page" style="background-color: white;width: 100%;height: 100%;">
-    <div class="side" style="width:20%;height:100%;background-image: url('img/side.jpg')">
+    <div class="side" style="width:20%;height:100%;background-image: url('../jsp/img/side.jpg')">
         <ul>
 
             <li class="side-first"><a id="diagnose" href="#">诊疗</a>
                 <ul class="side-sec" id="diasublevel" style="display: none">
-                    <li id="patientInsAndDia"><a href="query.customer">病人录入与诊断</a></li>
+                    <li id="patientInsAndDia"><a href="/onlineClinic/customer/query">病人录入与诊断</a></li>
                     <li><a href="#">药品推荐与展示</a></li>
                 </ul>
             </li>
@@ -215,12 +222,12 @@
     <div class="main" style="width:80%;height:100%;">
 
         <div id="patientDiagnose" style="display: block">
-            <form action="query.customer" method="get">
+            <form action="/onlineClinic/customer/query" method="post">
                 <input type="hidden" id="currentPage" name="currentPage" value="${pageInfo.currentPage}">
                 <input type="text" placeholder="输入病人关键信息" name="patientKeyInfo" value="${paQC.queryCon}">
                 <input type="submit" onclick="goPage(1)" value="查询全部病人信息">
             </form>
-            <a href='addPatient.jsp'>新增病人信息</a>
+            <a href='/onlineClinic/jsp/addPatient.jsp'>新增病人信息</a>
 
             <table style="width: 100%;height: 100%;margin: auto" border="2px" cellpadding="5px" cellspacing="5px">
                 <tr>
@@ -242,9 +249,9 @@
                         <td>${patient.idCardNo}</td>
                         <td>${patient.phone}</td>
                         <td>
-                            <a href="#">删除</a>
-                            <a href="queryById.customer?id=${patient.id}&jumpTo=update">修改</a>
-                            <a href="queryById.customer?id=${patient.id}&jumpTo=diagnose">诊断</a>
+                            <a href="/onlineClinic/customer/delete?id=${patient.id}">删除</a>
+                            <a href="/onlineClinic/customer/queryById?id=${patient.id}&jumpTo=update">修改</a>
+                            <a href="/onlineClinic/customer/queryById?id=${patient.id}&jumpTo=diagnose">诊断</a>
                         </td>
                     </tr>
                 </c:forEach>

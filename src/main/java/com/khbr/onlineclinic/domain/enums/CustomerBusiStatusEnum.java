@@ -8,7 +8,7 @@ import com.khbr.onlineclinic.util.EnumUtil;
  * @author dizhu
  *
  */
-public enum CustomerBusiStatusEnum {
+public enum CustomerBusiStatusEnum implements BaseEnum {
 	WAITING_DOCTOR(1, "待诊"),
 
 	FINISH_DIAGNOSE(2, "诊断完毕"),

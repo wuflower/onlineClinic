@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum LinkManTypeEnum {
+public enum LinkManTypeEnum implements BaseEnum {
 	PARENT(1, "父母"),
 
 	CHILDREN(2, "子女"),

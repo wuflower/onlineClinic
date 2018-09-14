@@ -32,11 +32,11 @@
 </head>
 <body>
 <div class="platform-page">
-    <div class="head" style="width: 100%;height: 10%;background-image: url('img/head.jpg')">
+    <div class="head" style="width: 100%;height: 10%;background-image: url('../img/head.jpg')">
 
         <span class="firstPro" id="diaCharge"><a href="diaCharge.jsp">诊疗收费</a></span>
         <span class="firstPro" id="drugManage"><a href="drugManage.jsp">药品管理</a></span>
-        <span class="firstPro" id="innerManage"><a href="jsp/innerManage.jsp">内部管理</a></span>
+        <span class="firstPro" id="innerManage"><a href="innerManage.jsp">内部管理</a></span>
         用户名显示
 
     </div>

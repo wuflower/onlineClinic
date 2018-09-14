@@ -4,7 +4,7 @@
 <mapper namespace="com.khbr.onlineclinic.dao.CaseMapper">
     <insert id="insertCase" parameterType="com.khbr.onlineclinic.domain.po.Case" >
         INSERT INTO casebook(type,isSubsequent,selfReported，diagnosiDate，temperature，systolicPress，diastolicPress，weight，height)
-        VALUES (#{type},#{isSubsequent},#{selfReported}，#{diagnosiDate}，#{temperature}，#{systolicPress}，#{diastolicPress，weight}，#{height} )
+        VALUES (#{type},#{isSubsequent},#{selfReported}，#{diagnosiDate}，#{temperature}，#{systolicPress}，#{diastolicPress}，#{weight}，#{height} )
 
     </insert>
 </mapper>

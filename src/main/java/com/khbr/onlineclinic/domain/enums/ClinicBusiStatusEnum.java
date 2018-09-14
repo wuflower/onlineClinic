@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum ClinicBusiStatusEnum {
+public enum ClinicBusiStatusEnum implements BaseEnum {
 	COMMITED(1, "已提交申请"),
 
 	APPROVED(2, "已通过审批"),

@@ -20,4 +20,6 @@ public interface CustomerMapper {
     CustomerInfo selectById(Integer id);
 
     void updateCustomer(AddCustomerInfo addCustomerInfo);
+
+    void deleteCustomer(Integer id);
 }

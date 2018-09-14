@@ -40,6 +40,10 @@
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern><!--表示拦截所有请求-->
+
   </servlet-mapping>
+
+
+
 
 </web-app>

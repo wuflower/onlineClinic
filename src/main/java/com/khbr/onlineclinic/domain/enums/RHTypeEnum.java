@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum RHTypeEnum {
+public enum RHTypeEnum implements BaseEnum{
 	POSITIVE(1, "RH阳性"),
 
 	NEGATIVE(2, "RH阴性"),

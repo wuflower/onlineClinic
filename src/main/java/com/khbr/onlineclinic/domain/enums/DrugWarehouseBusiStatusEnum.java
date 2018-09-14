@@ -5,7 +5,7 @@ package com.khbr.onlineclinic.domain.enums;
  *
  * @author dizhu
  */
-public enum DrugWarehouseBusiStatusEnum {
+public enum DrugWarehouseBusiStatusEnum implements BaseEnum {
     UNCHECKED(1, "本轮未盘点"),
     CHECKING(2,"本轮盘点中"),
     CHECKED(3, "本轮盘点完成"),

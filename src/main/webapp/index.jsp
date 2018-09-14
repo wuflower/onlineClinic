@@ -38,7 +38,7 @@
                 if(data=="ok"){
                     $("#remind").text("登陆成功");
                     $(function(){
-                        window.location.href="platformManage.jsp";
+                        window.location.href="jsp/platformManage.jsp";
                     })
                 }else {
                     $("#remind").html(data);

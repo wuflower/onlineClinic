@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum CaseTypeEnum {
+public enum CaseTypeEnum implements BaseEnum {
 	WEST_MED_CASE(1, "西医病例"),
 
 	CHI_MED_CASE(2, "中医病例"),

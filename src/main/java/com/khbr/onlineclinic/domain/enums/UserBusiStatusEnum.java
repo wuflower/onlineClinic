@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum UserBusiStatusEnum {
+public enum UserBusiStatusEnum implements BaseEnum{
 	SEX_MALE(1, "男性"),
 
 	SEX_FEMALE(2, "女性"),

@@ -1,22 +1,18 @@
 package com.khbr.onlineclinic.controller;
 
 import com.khbr.onlineclinic.domain.dto.CustomerInfo;
-import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
+import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.service.ICustomerService;
-import com.khbr.onlineclinic.util.DynamicParamsConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -25,153 +21,82 @@ import java.io.IOException;
  */
 /*@WebServlet*/
 @Controller
-public class CustomerServlet extends HttpServlet {
+@RequestMapping("/customer")
+@SessionAttributes("message")
+public class CustomerServlet{
     @Autowired
     private ICustomerService customerService;
 
-    @Override
-    @RequestMapping("*.customer")
-    public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
-        resp.setCharacterEncoding("utf-8");
-        resp.setContentType("text/html;charset=utf-8");
-
-        String uri = req.getRequestURI();
-        System.out.println(uri);
-
-        if (uri != null && "/onlineClinic/add.customer".equals(uri)) {
-            this.addCustomer(req, resp);
-        } else if (uri != null && "/onlineClinic/query.customer".equals(uri)) {
-            this.queryCustomer(req, resp);
-        } else if (uri != null && "/onlineClinic/queryById.customer".equals(uri)) {
-            this.queryCustomerById(req, resp);
-        }
-
-    }
-
     /**
-     * 增加病人信息
      *
-     * @param req
-     * @param resp
+     * @param addCustomerInfo
+     * @return
      * @throws ServletException
      * @throws IOException
      */
-    public void addCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*String name = req.getParameter("name");
-        String idCardNo = req.getParameter("idCardNo");
-        String sex = req.getParameter("sex");
-        String birth = req.getParameter("birth");
-        String age = req.getParameter("age");
-        String isMaried = req.getParameter("isMaried");
-        String profession = req.getParameter("profession");
-        String phone = req.getParameter("phone");
-        String province = req.getParameter("province");
-        String city = req.getParameter("city");
-        String district = req.getParameter("district");
-        String street = req.getParameter("street");
-        String address = req.getParameter("address");
+    @RequestMapping("/add")
+    public String addCustomer(AddCustomerInfo addCustomerInfo) throws ServletException, IOException {
 
-
-        AddCustomerInfo addCustomerInfo = new AddCustomerInfo(name, idCardNo, Integer.valueOf(sex), Date.valueOf(birth), Integer.valueOf(age), Byte.valueOf(isMaried), Integer.valueOf(profession), phone, province, city, district, street, address);
-
-       */
-        AddCustomerInfo addCustomerInfo = DynamicParamsConverter.paramsFill(req, "com.khbr.onlineclinic.domain.po.AddCustomerInfo");
         customerService.addCustomer(addCustomerInfo);
 
-        resp.sendRedirect("query.customer");
+        return "redirect:/customer/query";
     }
 
     /**
-     * 查询病人信息
      *
-     * @param req
-     * @param resp
-     * @throws ServletException
-     * @throws IOException
+     * @param patientQueryConditions
+     * @return
      */
-    public void queryCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String patientKeyInfo = req.getParameter("patientKeyInfo");
-        String currentPage = req.getParameter("currentPage");
+    @RequestMapping("/query")
+    public ModelAndView queryCustomer(PatientQueryConditions patientQueryConditions){
 
-        PatientQueryConditions patientQueryConditions = new PatientQueryConditions();
-        if (patientKeyInfo != null && !"".equals(patientKeyInfo)) {
-            patientQueryConditions.setQueryCon(patientKeyInfo);
-        }
-        if (currentPage != null && !"".equals(currentPage)) {
-            patientQueryConditions.setCurrentPage(Integer.valueOf(currentPage));
-        }
         PageInfo pageInfo = customerService.queryPatient(patientQueryConditions);
-        req.setAttribute("pageInfo", pageInfo);
-        req.setAttribute("paQC", patientQueryConditions);
-
-        req.getRequestDispatcher("diaCharge.jsp").forward(req, resp);
+        ModelAndView mav1=new ModelAndView("diaCharge");
+        mav1.addObject("pageInfo", pageInfo);
+        mav1.addObject("paQC", patientQueryConditions);
+        return mav1;
     }
 
     /**
-     * 根据id查询病人信息
      *
-     * @param req
-     * @param resp
+     * @param id
+     * @param jumpTo
      * @throws ServletException
      * @throws IOException
      */
-    public void queryCustomerById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        String jumpTo = req.getParameter("jumpTo");
-        CustomerInfo addCustomerInfo = customerService.queryPatientById(Integer.valueOf(id));
-        HttpSession session = req.getSession();
-        session.setAttribute("patient", addCustomerInfo);
+    @RequestMapping("/queryById")
+    public ModelAndView queryCustomerById(Integer id,String jumpTo) {
+        CustomerInfo addCustomerInfo = customerService.queryPatientById(id);
         if (jumpTo.equals("diagnose")) {
-            req.getRequestDispatcher("case.jsp").forward(req, resp);
+            return new ModelAndView("case","patient", addCustomerInfo);
         }else if (jumpTo.equals("update")){
-            req.getRequestDispatcher("updateCustomer.jsp").forward(req,resp);
+            return new ModelAndView("updateCustomer","patient", addCustomerInfo);
         }
+        return null;
     }
 
     /**
-     * 修改病人信息
-     * @param req
-     * @param resp
+     *
+     * @param addCustomerInfo
+     * @return
      * @throws ServletException
      * @throws IOException
      */
-    public void modifyCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*String id = req.getParameter("customerId");
-        String name = req.getParameter("name");
-        String sex = req.getParameter("sex");
-        String idCardNo = req.getParameter("idCardNo");
-        String birth = req.getParameter("birth");
-        String age = req.getParameter("age");
-        String isMaried = req.getParameter("isMaried");
-        String province = req.getParameter("province");
-        String city = req.getParameter("city");
-        String phone = req.getParameter("phone");
-        String district = req.getParameter("district");
-        String street = req.getParameter("street");
-        String address = req.getParameter("address");
+    @RequestMapping("/modify")
+    public String modifyCustomer(AddCustomerInfo addCustomerInfo){
+       customerService.modifyCustomer(addCustomerInfo);
+        return "redirect:/customer/query";
+    }
 
-
-        AddCustomerInfo addCustomerInfo = new AddCustomerInfo();
-        addCustomerInfo.setId(Integer.valueOf(id));
-        addCustomerInfo.setName(name);
-        SexEnum sexEnum = EnumUtils.getEnum(SexEnum.class, sex);
-        addCustomerInfo.setSex(sexEnum.getStatus());
-        addCustomerInfo.setIdCardNo(idCardNo);
-        addCustomerInfo.setBirth(Date.valueOf(birth));
-        addCustomerInfo.setAge(Integer.valueOf(age));
-        addCustomerInfo.setIsMaried(Byte.valueOf(isMaried));
-        addCustomerInfo.setProvince(province);
-        addCustomerInfo.setCity(city);
-        addCustomerInfo.setDistrict(district);
-        addCustomerInfo.setStreet(street);
-        addCustomerInfo.setAddress(address);
-        addCustomerInfo.setPhone(phone);*/
-        AddCustomerInfo addCustomerInfo =(AddCustomerInfo) DynamicParamsConverter.paramsFill(req, "com.khbr.onlineclinic.domain.po.AddCustomerInfo");
-
-        customerService.modifyCustomer(addCustomerInfo);
-
-        resp.sendRedirect("query.customer");
+    /**
+     * 删除用户，即改变数据库中的状态
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delete")
+    public String deleteCustomer(Integer id){
+        customerService.deleteCustomer(id);
+        return "redirect:/customer/query";
     }
 }
 

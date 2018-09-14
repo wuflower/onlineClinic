@@ -1,9 +1,5 @@
 package com.khbr.onlineclinic.domain.po;
 
-import com.khbr.onlineclinic.domain.enums.CaseTypeEnum;
-
-import java.util.Date;
-
 /**
  * Created by Administrator on 2018/9/4 0004.
  */
@@ -12,7 +8,7 @@ public class Case {
     private Integer type;
     private Byte isSubsequent;
     private String selfReported;
-    private Date diagnosiDate;
+    private String diagnosiDate;
     private String temperature;
     private String systolicPress; //收缩压
     private String diastolicPress;
@@ -20,18 +16,6 @@ public class Case {
     private Integer height;
 
     public Case() {
-    }
-
-    public Case(Integer type, Byte isSubsequent, String selfReported, Date diagnosiDate, String temperature, String systolicPress, String diastolicPress, Integer weight, Integer height) {
-        this.type = type;
-        this.isSubsequent = isSubsequent;
-        this.selfReported = selfReported;
-        this.diagnosiDate = diagnosiDate;
-        this.temperature = temperature;
-        this.systolicPress = systolicPress;
-        this.diastolicPress = diastolicPress;
-        this.weight = weight;
-        this.height = height;
     }
 
     public Integer getType() {
@@ -58,11 +42,11 @@ public class Case {
         this.selfReported = selfReported;
     }
 
-    public Date getDiagnosiDate() {
+    public String getDiagnosiDate() {
         return diagnosiDate;
     }
 
-    public void setDiagnosiDate(Date diagnosiDate) {
+    public void setDiagnosiDate(String diagnosiDate) {
         this.diagnosiDate = diagnosiDate;
     }
 

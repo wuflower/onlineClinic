@@ -68,7 +68,7 @@
 
 </head>
 <body>
-<div class="head" style="width: 100%;height: 10%;background-image: url('img/head.jpg')">
+<div class="head" style="width: 100%;height: 10%;background-image: url('../img/head.jpg')">
 
     <span class="firstPro" id="diaCharge"><a href="diaCharge.jsp">诊疗收费</a></span>
     <span class="firstPro" id="spanDrugManage"><a href="drugManage.jsp">药品管理</a></span>
@@ -77,7 +77,7 @@
 
 </div>
 <div class="diagnose-page">
-    <div class="side" style="width:12%;height:100%;background-image: url('img/side.jpg')" >
+    <div class="side" style="width:12%;height:100%;background-image: url('../img/side.jpg')" >
         <ul>
 
             <li ><a id="drugManage" href="#">药品管理</a>

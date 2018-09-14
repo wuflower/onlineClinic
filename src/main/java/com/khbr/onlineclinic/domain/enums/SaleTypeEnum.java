@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum SaleTypeEnum {
+public enum SaleTypeEnum implements BaseEnum{
 	HE(1, "非拆零销售"),
 
 	PIAN(2, "拆零销售");

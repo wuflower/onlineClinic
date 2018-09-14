@@ -20,7 +20,7 @@
    </select>
 
     <select id="selectTotalRows" parameterType="com.khbr.onlineclinic.domain.dto.PatientQueryConditions" resultType="int">
-        SELECT COUNT(1) totalRows FROM customer
+        SELECT COUNT(1) totalRows FROM customer WHERE busiStatus=1
     </select>
 
     <select id="selectById" parameterType="int" resultType="com.khbr.onlineclinic.domain.dto.CustomerInfo">
@@ -30,5 +30,8 @@
     <update id="updateCustomer" parameterType="com.khbr.onlineclinic.domain.po.AddCustomerInfo">
         UPDATE customer SET name=#{name},idCardNo=#{idCardNo},sex=#{sex},birth=#{birth},age=#{age},phone=#{phone},idMaried=#{isMaried},province=#{province},city=#{city},district=#{district},street=#{street},address=#{address}
         WHERE id=#{id}
+    </update>
+    <update id="deleteCustomer" parameterType="int">
+        UPDATE customer SET busiStatus=0 WHERE id=#{id}
     </update>
 </mapper>

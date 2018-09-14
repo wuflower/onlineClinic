@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum UserPermissionEnum {
+public enum UserPermissionEnum implements BaseEnum{
 	DIAGNOSE(1,"诊断"),
 	RECIPE(2,"处方"),
 	REGIST_CUSTOMER(3,"登记会员信息"),
@@ -28,7 +28,7 @@ public enum UserPermissionEnum {
 		this.message = message;
 	}
 
-	public Integer getStatus() {
+	public int getStatus() {
 		return status;
 	}
 

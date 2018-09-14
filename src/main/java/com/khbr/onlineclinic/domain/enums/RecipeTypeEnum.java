@@ -6,7 +6,7 @@ package com.khbr.onlineclinic.domain.enums;
  * @author dizhu
  *
  */
-public enum RecipeTypeEnum {
+public enum RecipeTypeEnum implements BaseEnum {
 	WEST_MED_RECIPE(1, "西医处方"),
 
 	CHI_MED_CASE(2, "中医处方"),
