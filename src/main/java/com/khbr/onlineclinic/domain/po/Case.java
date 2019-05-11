@@ -6,6 +6,7 @@ package com.khbr.onlineclinic.domain.po;
 public class Case {
 
     private Integer type;
+    private Integer customerId;
     private Byte isSubsequent;
     private String selfReported;
     private String diagnosiDate;
@@ -24,6 +25,14 @@ public class Case {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public Byte getIsSubsequent() {
@@ -92,11 +101,12 @@ public class Case {
 
     @Override
     public String toString() {
-        return "PatientCase{" +
+        return "Case{" +
                 "type=" + type +
+                ", customerId=" + customerId +
                 ", isSubsequent=" + isSubsequent +
                 ", selfReported='" + selfReported + '\'' +
-                ", diagnosiDate=" + diagnosiDate +
+                ", diagnosiDate='" + diagnosiDate + '\'' +
                 ", temperature='" + temperature + '\'' +
                 ", systolicPress='" + systolicPress + '\'' +
                 ", diastolicPress='" + diastolicPress + '\'' +

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khbr.onlineclinic.dao.UserMapper">
+    <select id="selectUser" resultType="com.khbr.onlineclinic.domain.dto.User">
+        SELECT id,userName,userPass,trueName,idCardNo,sex,birth,age,phone,province,city,district,street,address,userRole FROM user
+    </select>
+</mapper>

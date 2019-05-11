@@ -7,13 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sql.rowset.serial.SerialStruct;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Administrator on 2018/8/30 0030.
@@ -22,6 +17,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/admin")
+
 public class LoginServlet extends HttpServlet {
 
     @Autowired
@@ -30,8 +26,9 @@ public class LoginServlet extends HttpServlet {
 
     @RequestMapping("/login")
     @ResponseBody
-    public String login(String userName,String password){
+    public String login(String userName, String password, HttpSession session){
         Admin login = loginService.queryByUserName(userName);
+        session.setAttribute("login",login);
         if (login!=null){
             if (login.getPassword().equals(password)){
                 return "ok";
@@ -41,6 +38,14 @@ public class LoginServlet extends HttpServlet {
         }else {
             return "您还未注册，<a href='jsp/register.jsp'>前往注册</a>";
         }
+    }
+
+
+    @RequestMapping("/register")
+    public String register(Admin admin){
+        loginService.register(admin);
+        return "redirect:/index.jsp";
+
     }
 
 }

@@ -1,6 +1,5 @@
 package com.khbr.onlineclinic;
 
-import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
 import com.khbr.onlineclinic.service.ICustomerService;
 import com.khbr.onlineclinic.service.impl.CustomerService;
@@ -27,8 +26,7 @@ public class TestCustomer {
     @Test
     public void testQuery(){
         PatientQueryConditions patientQueryConditions = new PatientQueryConditions();
-        PageInfo pageInfo = customerService.queryPatient(patientQueryConditions);
-        System.out.println(pageInfo);
+
     }
 
 

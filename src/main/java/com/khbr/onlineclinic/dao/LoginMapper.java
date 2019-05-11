@@ -10,4 +10,6 @@ import com.khbr.onlineclinic.domain.po.Admin;
 public interface LoginMapper {
 
      Admin selectByAccountName(String accountName);
+
+     void insertAdmin(Admin admin);
 }

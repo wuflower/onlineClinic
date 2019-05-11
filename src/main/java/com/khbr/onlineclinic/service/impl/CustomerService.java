@@ -3,7 +3,6 @@ package com.khbr.onlineclinic.service.impl;
 import com.khbr.onlineclinic.dao.CustomerMapper;
 import com.khbr.onlineclinic.domain.po.AddCustomerInfo;
 import com.khbr.onlineclinic.domain.dto.CustomerInfo;
-import com.khbr.onlineclinic.domain.dto.PageInfo;
 import com.khbr.onlineclinic.domain.dto.PatientQueryConditions;
 import com.khbr.onlineclinic.domain.dto.QueryPatient;
 import com.khbr.onlineclinic.service.ICustomerService;
@@ -35,28 +34,10 @@ public class CustomerService implements ICustomerService {
      * @return
      */
     @Override
-    public PageInfo queryPatient(PatientQueryConditions queryConditions) {
+    public List<QueryPatient> queryPatient(PatientQueryConditions queryConditions) {
 
-        PageInfo<QueryPatient> pageInfo = new PageInfo();
-
-        Integer id=2;
-
-        List<QueryPatient> patients = customerDao.selectCustomer(queryConditions);
-        pageInfo.setData(patients);
-
-        Integer count = queryConditions.getPageSize(); //每页显示数据条数
-        pageInfo.setPageSize(count);
-
-        pageInfo.setCurrentPage(queryConditions.getCurrentPage());  //当前第几页
-
-        Integer totalRows = customerDao.selectTotalRows(queryConditions);
-        pageInfo.setTotalRows(totalRows);
-
-        Integer totalPage=(totalRows+count-1)/count;
-        pageInfo.setTotalPage(totalPage);
-
-
-        return pageInfo;
+        List<QueryPatient> queryPatients = customerDao.selectCustomer(queryConditions);
+        return queryPatients;
     }
 
     /**

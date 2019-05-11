@@ -29,6 +29,6 @@ public class LoginService implements ILoginService {
 
     @Override
     public void register(Admin login) {
-
+        loginDao.insertAdmin(login);
     }
 }
